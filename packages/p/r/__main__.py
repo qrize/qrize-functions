@@ -1,13 +1,20 @@
 import os
 import redis
 from http import HTTPStatus
-from .utils import get_redis_host
+from hashids import Hashids
+
+
+redis_host = os.getenv('REDIS_HOST')
+redis_port = os.getenv('REDIS_PORT')
+redis_pass = os.getenv('REDIS_PASS')
+
+hashids = Hashids()
+
+def hashids_encode(url_id):
+    return hashids.encrypt(url_id)
 
 def main(args):
-      return { "body": "utils, %s" % get_redis_host() }
-      # redis_host = os.getenv('REDIS_HOST')
-      # redis_port = os.getenv('REDIS_PORT')
-      # redis_pass = os.getenv('REDIS_PASS')
+      return { "body": "hash, %s" % hashids_encode(123) }
 
       # r = redis.Redis(host=redis_host, port=redis_port, password=redis_pass, decode_responses=True)
 
