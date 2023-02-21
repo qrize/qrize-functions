@@ -84,7 +84,7 @@ def url_to_hash(url):
     # check if url is not empty
     if not url:
         return {
-            "status": HTTPStatus.BAD_REQUEST,
+            "statusCode": HTTPStatus.BAD_REQUEST,
             "body": "No url provided",
         }
 
@@ -94,7 +94,7 @@ def url_to_hash(url):
     # check if url is valid
     if not validate_url(url):
         return {
-            "status": HTTPStatus.BAD_REQUEST,
+            "statusCode": HTTPStatus.BAD_REQUEST,
             "body": "Invalid url",
         }
 
