@@ -1,5 +1,5 @@
 def main(args):
-      return { "body": args.get('http').path }
+      return { "body": "path is: '%s'" % args.get('http')['path'] }
       # path = args.get('http')['path'] # e.g. "/some-hash"
       # hash = path[1:] # remove first symbol (slash '/')
 
