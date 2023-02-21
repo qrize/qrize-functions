@@ -1,7 +1,7 @@
 import os
 import redis
 from http import HTTPStatus
-from ..utils import get_redis_host
+from .utils import get_redis_host
 
 def main(args):
       return { "body": "utils, %s" % get_redis_host() }
