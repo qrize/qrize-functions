@@ -1,7 +1,6 @@
 def main(args):
-      path = args.get('http')['path'] # e.g. "/some-hash"
-
-      return { "body": path }
+      return { "body": 'hello!' }
+      # path = args.get('http')['path'] # e.g. "/some-hash"
       # hash = path[1:] # remove first symbol (slash '/')
 
       # # get URL by hash

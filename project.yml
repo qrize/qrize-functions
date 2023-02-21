@@ -3,3 +3,7 @@ packages:
     actions:
       - name: r # redirect
         runtime: 'python:default'
+      - name: hash_to_url
+        runtime: 'python:default'
+      - name: url_to_hash
+        runtime: 'python:default'
