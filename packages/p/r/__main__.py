@@ -1,26 +1,23 @@
 def main(args):
-      path = args.http.path # e.g. "/some-hash"
+      path = args.get('http')['path'] # e.g. "/some-hash"
       hash = path[1:] # remove first symbol (slash '/')
 
+      # get URL by hash
+      # TODO
+      url = hash
 
-      return { "body": hash }
+      if url == 'empty':
+            return {
+                  "statusCode": 404
+            }
 
-      # # get URL by hash
-      # # TODO
-      # url = hash
+      if url == 'redirect':
+            return {
+                  "statusCode": 301,
+                  "headers": {
+                        "location": "https://example.com"
+                  }
+            }
 
-      # if url == 'empty':
-      #       return {
-      #             "statusCode": 404
-      #       }
-
-      # if url == 'redirect':
-      #       return {
-      #             "statusCode": 301,
-      #             "headers": {
-      #                   "location": "https://example.com"
-      #             }
-      #       }
-
-      # return { "body": url }
+      return { "body": url }
   
