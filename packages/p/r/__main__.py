@@ -13,7 +13,22 @@ hashids = Hashids()
 def hashids_encode(url_id):
     return hashids.encrypt(url_id)
 
+def get_url_to_hash_response(url_to_hash):
+      return { "body": "url_to_hash: %s" % url_to_hash }
+def get_hash_to_url_response(hash_to_url):
+      return { "body": "hash_to_url: %s" % hash_to_url }
+
 def main(args):
+      url_to_hash = args.get('url_to_hash', None)
+      hash_to_url = args.get('hash_to_url', None)
+
+      if url_to_hash is not None:
+            return get_url_to_hash_response(url_to_hash)
+
+      if hash_to_url is not None:
+            return get_hash_to_url_response(hash_to_url)
+
+
       return { "body": "hash, %s" % hashids_encode(123) }
 
       # r = redis.Redis(host=redis_host, port=redis_port, password=redis_pass, decode_responses=True)
