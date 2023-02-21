@@ -70,6 +70,7 @@ def get_hash_for_url(url):
         hash = hashids.encode(id)
         hash_key = get_hash_key(hash)
         r.set(hash_key, url)
+        r.set(url_key, hash)
     return hash
 
 
@@ -110,6 +111,13 @@ def url_to_hash(url):
 
 def hash_to_url(hash):
     url = get_url_for_hash(hash)
+
+    if not url:
+        return {
+            "statusCode": HTTPStatus.NOT_FOUND,
+            "body": "No url found",
+        }
+
     return {
         "body": {
             "url": url,
@@ -121,11 +129,13 @@ def hash_to_url(hash):
 def redirect(args):
     path = args.get("http")["path"]  # e.g. "/some-hash"
     hash = path[1:]  # remove first symbol (slash '/')
+
     url = get_url_for_hash(hash)
 
     if not url:
         return {
             "statusCode": HTTPStatus.NOT_FOUND,
+            "body": "No url found",
         }
 
     return {
