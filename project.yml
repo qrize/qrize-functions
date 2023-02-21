@@ -1,5 +1,5 @@
 packages:
-  - name: f # functions
+  - name: p # package
     actions:
       - name: r # redirect
         runtime: 'python:default'
