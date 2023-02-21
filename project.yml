@@ -3,6 +3,5 @@ packages:
     actions:
       - name: hello
         runtime: 'python:default'
-actions:
-  - name: test
-    runtime: 'python:default'
+  actions: test
+  runtime: 'python:default'
