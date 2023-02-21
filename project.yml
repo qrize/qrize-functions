@@ -1,8 +1,8 @@
 packages:
-  - name: sample
-    actions:
-      - name: hello
-        runtime: python:default
-actions:
-  - name: test
+- name: sample
+  actions:
+  - name: hello
+    runtime: python:default
+- actions:
+  - name: hello
     runtime: python:default
