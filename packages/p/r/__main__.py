@@ -138,6 +138,9 @@ def redirect(args):
             "body": "No url found",
         }
 
+    if not url.startswith("http://") and not url.startswith("https://"):
+        url = "http://" + url
+
     return {
         "statusCode": HTTPStatus.MOVED_PERMANENTLY,
         "headers": {"location": url},
