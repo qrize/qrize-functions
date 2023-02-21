@@ -1,5 +1,5 @@
 packages:
-- name: sample
-  actions:
-  - name: hello
-    runtime: python:default
+  - name: sample
+    actions:
+      - name: hello
+        runtime: 'python:default'
