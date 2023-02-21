@@ -4,7 +4,7 @@ from http import HTTPStatus
 from ..utils import get_redis_host
 
 def main(args):
-      return { "body": "utils, %s" % get_redis_host }
+      return { "body": "utils, %s" % get_redis_host() }
       # redis_host = os.getenv('REDIS_HOST')
       # redis_port = os.getenv('REDIS_PORT')
       # redis_pass = os.getenv('REDIS_PASS')
